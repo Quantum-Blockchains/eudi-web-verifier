@@ -31,6 +31,72 @@
           </mat-card-actions>
         </mat-card>
       </ng-container>
+      
+      <div style="width: 95vw; margin-left: calc(50% - 47.5vw);">
+        <mat-expansion-panel *ngIf="vpTokenTopDisplay as vpTop" [expanded]="false" [hideToggle]="false" style="width: 100%; max-width: none;">
+          <mat-expansion-panel-header>
+            <mat-panel-title>SD-JWT (ML-DSA-44)</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div>
+            <div><strong>Algorytm</strong></div>
+            <pre style="white-space: pre-wrap; word-break: break-all; margin: 0;">{{ sdJwtAlg || 'ML-DSA-44' }}</pre>
+          </div>
+          <div style="height: 8px;"></div>
+          <div>
+            <div><strong>Public key</strong></div>
+            <pre style="white-space: pre-wrap; word-break: break-all; margin: 0;">{{ sdJwtPublicKey || sdJwtKeyId }}</pre>
+          </div>
+          <div style="height: 8px;"></div>
+          <div>
+            <div><strong>Signing content</strong></div>
+            <pre style="white-space: pre-wrap; word-break: break-all; margin: 0;">{{ vpTopSigningContent }}</pre>
+          </div>
+          <div style="height: 8px;"></div>
+          <div>
+            <div><strong>Signature</strong></div>
+            <pre style="white-space: pre-wrap; word-break: break-all; margin: 0;">{{ vpTopSignature }}</pre>
+          </div>
+          <div style="height: 16px;"></div>
+          <div style="text-align: center;">
+            <button mat-stroked-button (click)="downloadPublicKey('sd-jwt')" style="background-color: #2196F3; color: white; border-color: #2196F3;">
+              Download files for OpenSSL verification
+            </button>
+          </div>
+        </mat-expansion-panel>
+
+        <div style="height: 12px;"></div>
+
+        <mat-expansion-panel *ngIf="vpTokenBottomDisplay as vpBottom" [expanded]="false" [hideToggle]="false" style="width: 100%; max-width: none;">
+          <mat-expansion-panel-header>
+            <mat-panel-title>KB-JWT (ML-DSA-44)</mat-panel-title>
+          </mat-expansion-panel-header>
+          <div>
+            <div><strong>Algorytm</strong></div>
+                            <pre style="white-space: pre-wrap; word-break: break-all; margin: 0;">{{ kbJwtAlg || 'ML-DSA-44' }}</pre>
+          </div>
+          <div style="height: 8px;"></div>
+          <div>
+            <div><strong>Public key</strong></div>
+            <pre style="white-space: pre-wrap; word-break: break-all; margin: 0;">{{ kbJwtPublicKey || kbJwtKeyId }}</pre>
+          </div>
+          <div style="height: 8px;"></div>
+          <div>
+            <div><strong>Signing content</strong></div>
+            <pre style="white-space: pre-wrap; word-break: break-all; margin: 0;">{{ vpBottomSigningContent }}</pre>
+          </div>
+          <div style="height: 8px;"></div>
+          <div>
+            <div><strong>Signature</strong></div>
+            <pre style="white-space: pre-wrap; word-break: break-all; margin: 0;">{{ vpBottomSignature }}</pre>
+          </div>
+          <div style="height: 16px;"></div>
+          <div style="text-align: center;">
+            <button mat-stroked-button (click)="downloadPublicKey('kb-jwt')" style="background-color: #2196F3; color: white; border-color: #2196F3;">
+              Download files for OpenSSL verification
+            </button>
+          </div>
+        </mat-expansion-panel>
+      </div>
     </ng-container>
   </div>
 </div>

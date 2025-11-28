@@ -1,5 +1,4 @@
 <div>
-
   <div *ngIf="!hasResult" [ngClass]="{'green-bg': false}">
     <vc-qr-code (transactionConcludedEvent)="handleTransactionConcludedEvent($event)"></vc-qr-code>
   </div>
